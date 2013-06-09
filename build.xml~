@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project default="main" basedir=".">
+    <target name="main" depends="compile, jar" description="Main target">
+       <echo>Building the .jar file.</echo>
+    </target>
+    <target name="compile" description="Compilation target">
+       <javac srcdir="src" destdir="lib" />
+    </target>
+    <target name="jar" depends="compile">  
+        <jar destfile="DataBase.jar">  
+            <manifest>  
+                <attribute name="Main-class" value="datagen.DataGen"/>  
+            </manifest>  
+	    <fileset dir="lib"/>
+        </jar>  
+    </target>  
+    <target name="run" depends="jar">
+       <java classname="datagen.DataGen" classpath="DataBase.jar"/>
+    </target>
+</project>

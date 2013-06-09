@@ -1,0 +1,25 @@
+You can run gene.sh to enjoy the whole process, it requires you to install ant to compile with my build.xml
+
+The DataGeneator is written in JAVA, it takes these files as input:
+registration.txt
+map.xml
+readingnodeoutput.txt
+camera-locations.txt
+
+The DataGeneator will have two phases:
+The whole process can be found in datagen/DataGen.java/main()
+The first is to generate normal routes and random routes, which is done by
+		router.doooo1();
+		router.doooo2();
+The Result is the DoublePassFilterOutput.txt and NoFilterOutput.txt
+Then the datagen will grab routes from these output routes and generate traces.
+LegalOutput.txt is the traces from the normal drivers.
+IllegalOutput.txt is the traces from the imposters.
+NoiseOutput.txt is the noie.
+Finally
+output is final data.
+pureOutput is the final data without noise.
+They can be found in outputDir/
+
+Thanks,
+TianxingHe

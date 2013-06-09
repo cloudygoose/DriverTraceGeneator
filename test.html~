@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax TeX Test Page</title>
+</head>
+<body>
+
+<textarea id="text-input" oninput="this.editor.update()" rows="6" cols="60">
+My note
+=======
+oh shit
+-------
+**I use mathJax array to create tables, you should use four slashes for linebreak**  
+**You need to use 2 tabs before the code block**
+
+Fyc says:
+>You can't be me, hahahahahahahhaa.
+
+* Fyc is a good guy.
+* Fyc can't be you.
+
+$$
+  \left[\begin{array}{r|r|r|r}
+    1 & 2 & 4 & 8 \\\\
+    16 & 32 & 64 & 128 \\\\
+    256 & 512 & 1024 & 2048
+  \end{array}\right]
+$$
+
+You can use some `printf()` function.
+
+		code1
+		i = i+1;
+		if (j < i)
+
+When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+</textarea>
+
+
+<div id="preview"> </div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" src="./lib/MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    <script src="lib/markdown-js/markdown.js"></script>
+    <script>
+      function Editor(input, preview) {
+        this.update = function () {
+          preview.innerHTML = markdown.toHTML(input.value);
+        };
+        input.editor = this;
+        this.update();
+      }
+      var $ = function (id) { return document.getElementById(id); };
+      new Editor($("text-input"), $("preview"));
+    </script>
+
+
+</body>
+</html>
